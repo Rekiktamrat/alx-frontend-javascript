@@ -1,30 +1,15 @@
-/**
- * Task 1 & 2 — Teacher and Directors Interfaces
- */
-
-// Step 1: Define the Teacher interface
 interface Teacher {
-  readonly firstName: string;      // cannot be changed after creation
-  readonly lastName: string;       // cannot be changed after creation
-  fullTimeEmployee: boolean;       // must be defined
-  yearsOfExperience?: number;      // optional
-  location: string;                // must be defined
-  [key: string]: any;              // allows additional properties
+  firstName: string;
+  lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
-// Step 2: Extend Teacher interface to create Directors
 interface Directors extends Teacher {
-  numberOfReports: number;         // new property required for Directors
+  numberOfReports: number;
 }
-
-// Step 3: Example objects
-const teacher1: Teacher = {
-  firstName: 'Mary',
-  lastName: 'Smith',
-  fullTimeEmployee: true,
-  location: 'Addis Ababa',
-  contract: true,
-};
 
 const director1: Directors = {
   firstName: 'John',
@@ -34,6 +19,18 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 
-// Step 4: Output results
-console.log(teacher1);
 console.log(director1);
+
+// Task 3: Printing teachers
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = function (
+  firstName: string,
+  lastName: string
+): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+console.log(printTeacher("John", "Doe")); // Output: "J. Doe"
