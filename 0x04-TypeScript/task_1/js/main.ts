@@ -57,6 +57,9 @@ class StudentClass implements StudentClassInterface {
 
 
 console.log(director);
+const student = new StudentClass("John", "Doe");
+console.log(student.displayName()); // Output: John
+console.log(student.workOnHomework()); // Output: Currently working
 
 
 interface printTeacherFunction {
