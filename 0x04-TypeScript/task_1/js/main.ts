@@ -50,3 +50,4 @@ const director1: Directors = {
 console.log(teacher1);
 console.log(teacher2);
 console.log('Director:', director1);
+console.log('Teacher:', teacher1);
