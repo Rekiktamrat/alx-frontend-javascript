@@ -4,6 +4,50 @@
 
 // The `interface` keyword defines a structure (or blueprint) for an object.
 // It tells TypeScript: “Any object that wants to be a Teacher must have these properties.”
+/**
+ * Task 1 & 2 — Teacher and Directors Interfaces
+ */
+
+// Step 1: Define the Teacher interface
+interface Teacher {
+  readonly firstName: string;      // cannot be changed after creation
+  readonly lastName: string;       // cannot be changed after creation
+  fullTimeEmployee: boolean;       // must be defined
+  yearsOfExperience?: number;      // optional
+  location: string;                // must be defined
+  [key: string]: any;              // allows additional properties
+}
+
+// Step 2: Extend Teacher interface to create Directors
+// 'extends' means Directors will include everything from Teacher
+// plus whatever new properties we define.
+interface Directors extends Teacher {
+  numberOfReports: number;         // new property required for Directors
+}
+
+// Step 3: Example objects
+const teacher1: Teacher = {
+  firstName: 'Mary',
+  lastName: 'Smith',
+  fullTimeEmployee: true,
+  location: 'Addis Ababa',
+  contract: true,
+};
+
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17, // required only for Directors
+};
+
+// Step 4: Output results
+console.log('Teacher:', teacher1);
+console.log('Director:', director1);
+
+
+
 interface Teacher {
   readonly firstName: string;      // 'readonly' means this value cannot be changed after creation
   readonly lastName: string;       // same here — immutable once set
@@ -51,3 +95,4 @@ console.log(teacher1);
 console.log(teacher2);
 console.log('Director:', director1);
 console.log('Teacher:', teacher1);
+
