@@ -31,6 +31,30 @@ const director : Director = {
     location : "eygpt",
     numberOfReports : 3,
 }
+// Interface that describes the class methods
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Interface that describes the constructor
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// The StudentClass implementing the interface
+class StudentClass implements StudentClassInterface {
+  constructor(private firstName: string, private lastName: string) {}
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
 
 console.log(director);
 
