@@ -16,6 +16,10 @@ interface Teacher {
   [key: string]: any;
 }
 
+interface Directors extends Teacher {
+  numberOfReports: number;         // new property required for Directors
+}
+
 // Now let’s create an example teacher object following that interface:
 const teacher1: Teacher = {
   firstName: 'John',
@@ -34,7 +38,15 @@ const teacher2: Teacher = {
   location: 'New York',
   contract: false,
 };
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17, // required only for Directors
+};
 
 // Log them to the console to see what they look like
 console.log(teacher1);
 console.log(teacher2);
+console.log('Director:', director1);
