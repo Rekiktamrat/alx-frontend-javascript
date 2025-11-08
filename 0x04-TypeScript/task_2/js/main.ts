@@ -50,7 +50,14 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director();
   }
 }
-
+// Add export if required by your build/testing environment
+export function createEmployee(salary: number | string): Director | Teacher {
+  if (typeof salary === 'number' && salary < 500) {
+    return new Teacher();
+  } else {
+    return new Director();
+  }
+}
 // 6. Testing
 console.log(createEmployee(200));    // Teacher
 console.log(createEmployee(1000));   // Director
